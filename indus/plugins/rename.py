@@ -41,7 +41,7 @@ def get_video_thumb(file, output=None, width=90):
 async def _(event):
     if event.fwd_from:
         return
-    ievent = await eor(event,b"Renaming in process 🙄")
+    ievent = await eor(event,"Renaming in process 🙄")
     input_str = event.pattern_match.group(1)
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
