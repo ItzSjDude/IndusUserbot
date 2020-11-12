@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 
 from indus import ALIVE_NAME
-from indus import bot as jarvis
+from indus import bot as indus
 from indus.utils import admin_cmd, eor, load_module, remove_plugin, sudo_cmd
 
 DELETE_TIMEOUT = 5
