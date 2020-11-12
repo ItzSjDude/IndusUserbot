@@ -46,8 +46,8 @@ async def fastpurger(purg):
     await done.delete()
 
 
-@indus.on(admin_cmd(outgoing=True, pattern="purgeme", outgoing=True))
-@indus.on(sudo_cmd(allow_sudo=True, pattern="purgeme", allow_sudo=True))
+@indus.on(admin_cmd(outgoing=True, pattern="purgeme"))
+@indus.on(sudo_cmd(allow_sudo=True, pattern="purgeme"))
 @errors_handler
 async def purgeme(delme):
     """ For .purgeme, delete x count of your latest message."""
