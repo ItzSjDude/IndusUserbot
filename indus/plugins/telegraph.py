@@ -81,7 +81,7 @@ async def _(event):
             )
             end = datetime.now()
             ms = (end - start).seconds
-            await eor(event,f"Pasted to https://telegra.ph/{} in {} seconds.".format(response["path"], ms), link_preview=True)
+            await eor(event,"Pasted to https://telegra.ph/{} in {} seconds.".format(response["path"], ms), link_preview=True)
     else:
         await eor(event,"Reply to a message to get a permanent telegra.ph link. (Inspired by @ControllerBot)")
 
