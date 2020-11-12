@@ -5,7 +5,7 @@ import json
 import random
 import re
 from telethon import events, errors, custom
-from indus import CMD_LIST
+from indus import CMD_LIST, ALIVE_NAME
 import io
 NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = os.environ.get(
     "NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", None
