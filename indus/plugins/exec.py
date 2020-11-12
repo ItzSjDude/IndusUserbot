@@ -4,7 +4,7 @@ import traceback
 import asyncio
 import sys
 import io
-from indus import admin_cmd, sudo_cmd, eor
+from indus.utils import admin_cmd, sudo_cmd, eor
 
 @indus.on(admin_cmd(pattern="exec", outgoing=True))
 @indus.on(sudo_cmd(pattern="exec", allow_sudo=True))
