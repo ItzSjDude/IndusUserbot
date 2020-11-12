@@ -55,7 +55,7 @@ async def kang(args):
             photo = io.BytesIO()
             photo = await bot.download_media(message.photo, photo)
         elif "image" in message.media.document.mime_type.split("/"):
-            await await eor(args,f"`{random.choice(KANGING_STR)}`")
+            await eor(args,f"`{random.choice(KANGING_STR)}`")
             photo = io.BytesIO()
             await bot.download_file(message.media.document, photo)
             if (
@@ -65,7 +65,7 @@ async def kang(args):
                 emoji = message.media.document.attributes[1].alt
                 emojibypass = True
         elif "tgsticker" in message.media.document.mime_type:
-            await await eor(args,f"`{random.choice(KANGING_STR)}`")
+            await eor(args,f"`{random.choice(KANGING_STR)}`")
             await bot.download_file(message.media.document, "AnimatedSticker.tgs")
 
             attributes = message.media.document.attributes
