@@ -1,1 +1,1 @@
-userbot: python -m userbot
+indus: python -m indus
