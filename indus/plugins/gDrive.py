@@ -321,7 +321,7 @@ async def upload_file(http, file_path, file_name, mime_type, event, parent_id):
     media_body = MediaFileUpload(file_path, mimetype=mime_type, resumable=True)
     body = {
         "title": file_name,
-        "description": "Uploaded using Jarvis",
+        "description": "Uploaded using IndusUserBot",
         "mimeType": mime_type,
     }
     if parent_id is not None:
