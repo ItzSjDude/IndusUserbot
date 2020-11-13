@@ -4,9 +4,9 @@ Available Commands:
 .tr LangaugeCode | text to translate"""
 
 import emoji
+from indus import CMD_HNDLR
 from googletrans import Translator
 from indus.utils import admin_cmd, sudo_cmd, eor
-from indus import CMD_HNDLR
 
 
 @indus.on(admin_cmd("tr ?(.*)"))

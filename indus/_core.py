@@ -17,7 +17,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Indus"
 async def send(event):
     if event.fwd_from:
         return
-    hmm = bot.uid
+    hmm = bot.uid # pylint:disable=E0602
     message_id = event.message.id
     thumb = thumb_image_path
     input_str = event.pattern_match.group(1)

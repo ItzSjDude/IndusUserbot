@@ -24,7 +24,6 @@ else:
     bot.tgbot = None
     if Var.TG_BOT_USER_NAME_BF_HER is not None:
         print("Initiating Inline Bot")
-        # ForTheGreatrerGood of beautification
         bot.tgbot = TelegramClient(
             "TG_BOT_TOKEN",
             api_id=Var.APP_ID,
@@ -49,7 +48,7 @@ for name in files:
 
 import indus._core
 
-print("Yay your userbot is officially working.")
+print("Indus Userbot is Officially Working.")
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()

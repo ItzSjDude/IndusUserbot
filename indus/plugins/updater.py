@@ -3,40 +3,27 @@ Syntax: .update
 \nAll Credits goes to © @Three_Cube_TeKnoways
 \nFor this awasome plugin.\nPorted from PpaperPlane Extended"""
 
-from os import remove
-from os import execl
-import sys
-
-# from git import Repo
-# from git.exc import GitCommandError
-# from git.exc import InvalidGitRepositoryError
-# from git.exc import NoSuchPathError
-
-# from .. import bot
-# from userbot.utils import register
-
-import git
-import asyncio
-import random
 import re
-import time
-
-from collections import deque
-
-import requests
-
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
-from telethon import events
-
-from indus.utils import admin_cmd, sudo_cmd, eor
-from indus import CMD_HNDLR
-
-
-from contextlib import suppress
 import os
 import sys
+import git
+import sys
+import time
+import random
+import heroku3
 import asyncio
+import asyncio
+import requests
+from var import Var
+from os import execl
+from os import remove
+from telethon import events
+from indus import CMD_HNDLR
+from collections import deque
+from contextlib import suppress
+from indus.utils import admin_cmd, sudo_cmd, eor
+from telethon.tl.types import MessageEntityMentionName
+from telethon.tl.functions.users import GetFullUserRequest
 
 # -- Constants -- #
 IS_SELECTED_DIFFERENT_BRANCH = (
@@ -129,7 +116,6 @@ async def updater(message):
     repo.git.reset("--hard", "FETCH_HEAD")
 
     if Var.HEROKU_API_KEY is not None:
-        import heroku3
         heroku = heroku3.from_key(Var.HEROKU_API_KEY)
         heroku_applications = heroku.apps()
         if len(heroku_applications) >= 1:

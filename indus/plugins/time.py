@@ -6,7 +6,8 @@ import os
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 from indus.utils import admin_cmd, sudo_cmd, eor, edit_or_reply
-
+from var import Config
+import logging
 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 
@@ -38,7 +39,7 @@ async def _(event):
     drawn_text = ImageDraw.Draw(img)
     drawn_text.text((10, 10), current_time, font=fnt, fill=(255, 255, 255))
     img.save(required_file_name)
-    await borg.send_file(  # pylint:disable=E0602
+    await borg.send_file(  # pylint:disable=undefined-variable
         event.chat_id,
         required_file_name,
         caption="Userbot: Powered by @IndusBots",

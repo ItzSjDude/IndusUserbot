@@ -2,12 +2,13 @@
 Available Commands:
 .telegraph media as reply to a media
 .telegraph text as reply to a large text"""
-from telethon import events
 import os
 from PIL import Image
+from var import Config
+from telethon import events
 from datetime import datetime
-from telegraph import Telegraph, upload_file, exceptions
 from indus.utils import admin_cmd, sudo_cmd, eor
+from telegraph import Telegraph, upload_file, exceptions
 
 telegraph = Telegraph()
 r = telegraph.create_account(short_name=Config.TELEGRAPH_SHORT_NAME)

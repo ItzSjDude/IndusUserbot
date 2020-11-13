@@ -1,13 +1,14 @@
-from indus import bot
-from telethon import events
-from var import Var
-from pathlib import Path
-from indus.indusconfig import Config
-from indus import LOAD_PLUG
-from indus import CMD_LIST
 import re
+import time
 import logging
 import inspect
+from var import Var
+from indus import bot
+from pathlib import Path
+from indus import CMD_LIST
+from telethon import events
+from indus import LOAD_PLUG
+from indus.indusconfig import Config
 
 
 SUDO_LIST = Config.SUDO_USERS

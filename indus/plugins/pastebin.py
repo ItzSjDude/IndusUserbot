@@ -6,7 +6,7 @@ from datetime import datetime
 import os
 import requests
 from indus.utils import admin_cmd, sudo_cmd, eor
-
+from var import Config
 
 def progress(current, total):
     logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
