@@ -2,13 +2,12 @@ import re
 import time
 import logging
 import inspect
-from var import Var
+from var import Var, Config
 from indus import bot
 from pathlib import Path
 from indus import CMD_LIST
 from telethon import events
 from indus import LOAD_PLUG
-from indus.indusconfig import Config
 
 
 SUDO_LIST = Config.SUDO_USERS

@@ -44,7 +44,7 @@
       "value": "",
       "required": false
     },
-    "LYDIA_API_KEY": {
+    "LYDIA_API": {
       "description": "Needed for Lydia AI. Follow https://telegra.ph/Lydia-09-05 to get your API.",
       "value": "",
       "required": false
@@ -59,7 +59,7 @@
       "value": "",
       "required": false
     },
-    "TG_BOT_TOKEN_BF_HER": {
+    "TGBOT_TOKEN": {
       "description": "Needed for inline buttons maker. Make a bot at [BotFather](http://telegram.dog/BotFather) and get the token of your bot.Worth it. Get it.",
       "value": "",
       "required": false
@@ -74,7 +74,7 @@
       "value": "/app/.chromedriver/bin/chromedriver",
       "required": false
     },
-    "TG_BOT_USER_NAME_BF_HER": {
+    "TGBOT_USERNAME": {
       "description": "Needed for inline buttons maker. Make a bot at [BotFather](http://telegram.dog/BotFather) and get the username of your bot",
       "value": "",
       "required": false

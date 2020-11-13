@@ -1,10 +1,10 @@
-from telethon import events
-import subprocess
-from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
 import io
-import asyncio
 import time
+import asyncio
+import subprocess
+from telethon import events
 from indus.utils import admin_cmd, sudo_cmd, eor
+from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
 
 @indus.on(admin_cmd(pattern="bash ?(.*)", outgoing=True))
 @indus.on(sudo_cmd(pattern="bash ?(.*)", allow_sudo=True))

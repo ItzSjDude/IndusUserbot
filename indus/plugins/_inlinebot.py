@@ -1,19 +1,23 @@
 import os
-from math import ceil
-import asyncio
+import re
+import io
 import json
 import random
-import re
-from telethon import events, errors, custom
+import asyncio
+from math import ceil
+from var import Config, Var
 from indus import CMD_LIST, ALIVE_NAME
-import io
+from telethon import events, errors, custom
+
+
+
 NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = os.environ.get(
     "NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", None
 )
 EMOJI_TO_DISPLAY_IN_HELP = os.environ.get("EMOJI_TO_DISPLAY_IN_HELP", None)
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Jarvis"
-if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
+if Var.TGBOT_USERNAME is not None and tgbot is not None:
     @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
     async def inline_handler(event):
         builder = event.builder
@@ -129,7 +133,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
         pairs.append((modules[-1],))
     elif len(modules) % number_of_cols == 2:
         pairs.append((modules[-2], modules[-1]))
-    max_num_pages = math.ceil(len(pairs) / number_of_rows)
+    max_num_pages = ceil(len(pairs) / number_of_rows)
     modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
         pairs = pairs[

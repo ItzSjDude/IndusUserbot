@@ -4,10 +4,10 @@ Available Commands:
 .dns google.com
 .url <long url>
 .unshort <short url>"""
-from telethon import events
 import os
-import requests
 import json
+import requests
+from telethon import events
 from indus.utils import admin_cmd, sudo_cmd, eor
 
 

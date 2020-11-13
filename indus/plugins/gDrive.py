@@ -3,20 +3,20 @@
 # there might be some changes made to suit the needs for this repository
 # Licensed under MIT License
 
-import asyncio
-import math
 import os
+import math
 import time
+import asyncio
+import httplib2
+from var import Var
+from telethon import events
 from datetime import datetime
 from mimetypes import guess_type
-import httplib2
+from indus.utils import admin_cmd
+from oauth2client.file import Storage
 from apiclient.http import MediaFileUpload
 from googleapiclient.discovery import build
 from oauth2client.client import OAuth2WebServerFlow
-from oauth2client.file import Storage
-from telethon import events
-from indus.utils import admin_cmd
-
 # Path to token json file, it should be in same directory as script
 G_DRIVE_TOKEN_FILE = Var.TEMP_DOWNLOAD_DIRECTORY + "/auth_token.txt"
 # Copy your credentials from the APIs Console

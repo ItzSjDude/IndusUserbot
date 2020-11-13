@@ -1,12 +1,13 @@
 from indus import CMD_LIST
 from indus.utils import admin_cmd, sudo_cmd, eor
 from indus import ALIVE_NAME
+from var import Var
 
 @indus.on(admin_cmd(pattern="help ?(.*)", outgoing=True))
 @indus.on(sudo_cmd(pattern="help ?(.*)", allow_sudo=True))
 async def cmd_list(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
-        tgbotusername = Var.TG_BOT_USER_NAME_BF_HER
+        tgbotusername = Var.TGBOT_USERNAME
         input_str = event.pattern_match.group(1)
         if tgbotusername is None or input_str == "text":
             string = ""
