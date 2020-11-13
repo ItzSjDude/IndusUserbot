@@ -9,7 +9,7 @@ import sys
 
 import git
 
-from indus.indusconfig import Config
+from var import Config
 from indus.utils import admin_cmd, sudo_cmd, eor
 
 # -- Constants -- #
