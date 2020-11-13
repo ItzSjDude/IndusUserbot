@@ -12,13 +12,3 @@ async def _(event):
     ms = (end - start).microseconds / 1000
     await eor(event, f"Pong! 🏓 {ms} ..")
 
-
-@indus.on(admin_cmd(pattern="pong", outgoing=True))
-@indus.on(sudo_cmd(pattern="pong", allow_sudo=True))
-async def _(event):
-    if event.fwd_from:
-        return
-    start = datetime.now()
-    end = datetime.now()
-    ms = (end - start).microseconds * 0.00001
-    await eor(event, f"Ping! 🎾 {ms} ..")
