@@ -61,7 +61,7 @@ RUN apt -qq install -y --no-install-recommends \
     # this package is required to fetch "contents" via "TLS"
     apt-transport-https \
     # install coreutils
-    coreutils jq pv gcc g++ \
+    coreutils aria2 jq pv gcc g++ \
     # install encoding tools
     ffmpeg mediainfo rclone \
     # miscellaneous
@@ -81,7 +81,7 @@ RUN apt -qq install -y --no-install-recommends \
 # requiring the use of the entire repo, hence
 RUN pip3 install --upgrade pip setuptools
 # adds files from your Docker client’s current directory.
-RUN git clone https://github.com/Team-Indus/IndusUserbot 
+RUN git clone https://github.com/Team-Indus/IndusUserbot .
 RUN mkdir -p ./bin/
 RUN chmod +x /usr/local/bin/*
 # install requirements, inside the container
