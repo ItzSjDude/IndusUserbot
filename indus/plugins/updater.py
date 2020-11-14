@@ -25,8 +25,8 @@ requirements_path = path.join(
 
 HEROKU_API_KEY = Var.HEROKU_API_KEY
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME
-GIT_REPO_NAME = "Indus Userbot"
-UPSTREAM_REPO_URL = "https://github.com/Jarvis-Works/jarvisuserbot.git"
+GIT_REPO_NAME = "Indus"
+UPSTREAM_REPO_URL = "https://github.com/Team-Indus/IndusUserbot.git"
 
 
 async def gen_chlog(repo, diff):
@@ -51,11 +51,11 @@ async def updateme_requirements():
         return repr(e)
 
 
-@indus.on(admin_cmd(pattern="update ?(.*)", outgoing=True))
-@indus.on(sudo_cmd(pattern="update ?(.*)", allow_sudo=True))
+@jarvis.on(admin_cmd(pattern="update ?(.*)"))
+@jarvis.on(sudo_cmd(pattern="update ?(.*)", allow_sudo=True))
 async def upstream(ups):
     "For .update command, check if the bot is up to date, update if specified"
-    inds= await eor(ups,"`Searching for new updates, if any...`")
+    await eor(ups,"`Searching for new updates, if any...`")
     conf = ups.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_updateme = False
@@ -65,16 +65,16 @@ async def upstream(ups):
         txt += "some problems occured`\n\n**LOGTRACE:**\n"
         repo = Repo()
     except NoSuchPathError as error:
-        await inds.edit(f"{txt}\n`directory {error} is not found`")
+        await ups.edit(f"{txt}\n`directory {error} is not found`")
         repo.__del__()
         return
     except GitCommandError as error:
-        await inds.edit(f"{txt}\n`Early failure! {error}`")
+        await ups.edit(f"{txt}\n`Early failure! {error}`")
         repo.__del__()
         return
     except InvalidGitRepositoryError as error:
         if conf != "now":
-            await inds.edit(
+            await ups.edit(
                 f"**Unfortunately, the directory {error} does not seem to be a git repository.\
                 \nOr Maybe it just needs a sync verification with {GIT_REPO_NAME}\
             \nBut we can fix that by force updating the userbot using** `.update now`."
@@ -90,7 +90,7 @@ async def upstream(ups):
 
     ac_br = repo.active_branch.name
     if ac_br != "main":
-        await inds.edit(
+        await ups.edit(
             f"**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). "
             "in that case, Updater is unable to identify "
             "which branch is to be merged. "
@@ -123,7 +123,7 @@ async def upstream(ups):
             + f"{changelog}"
         )
         if len(changelog_str) > 4096:
-            await inds.edit("`Changelog is too big, view the file to see it.`")
+            await ups.edit("`Changelog is too big, view the file to see it.`")
             file = open("output.txt", "w+")
             file.write(changelog_str)
             file.close()
@@ -134,12 +134,12 @@ async def upstream(ups):
             )
             remove("changelogs.txt")
         else:
-            await inds.edit(changelog_str)
+            await ups.reply(changelog_str)
         await ups.respond(f"Do `{CMD_HNDLR}update now` to update")
         return
 
     if force_updateme:
-        await inds.edit("`Force-Syncing to latest stable userbot code, please wait...`")
+        await ups.edit("`Force-Syncing to latest stable userbot code, please wait...`")
     else:
         await ups.edit("`Updating userbot, please wait....`")
     # We're in a Heroku Dyno, handle it's memez.
@@ -196,6 +196,6 @@ async def upstream(ups):
             "`Successfully Updated!\n" "Bot is restarting... Wait for a second!`"
         )
         # Spin a new instance of bot
-        args = [sys.executable, "-m", "jarvis"]
+        args = [sys.executable, "-m", "indus"]
         execle(sys.executable, *args, environ)
         return
