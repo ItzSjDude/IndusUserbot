@@ -20,7 +20,7 @@ CMD_LIST = {}
 CMD_HELP = {}
 INT_PLUG = ""
 LOAD_PLUG = {}
-
+MOD_NAME = {}
 
 ENV = os.environ.get("ENV", False)
 """ PPE initialization. """
@@ -163,6 +163,7 @@ USERS = {}
 COUNT_PM = {}
 LASTMSG = {}
 CMD_HELP = {}
+MOD_NAME = {}
 ISAFK = False
 AFKREASON = None
 
