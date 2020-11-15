@@ -163,7 +163,6 @@ USERS = {}
 COUNT_PM = {}
 LASTMSG = {}
 CMD_HELP = {}
-MOD_NAME = {}
 ISAFK = False
 AFKREASON = None
 
