@@ -1,9 +1,9 @@
 import time
 import os
 import sys
+import asyncio 
 from telethon.sessions import StringSession
 from telethon import TelegramClient
-import indus.utils
 from var import Var
 
 os.system("pip install --upgrade pip")
@@ -24,14 +24,12 @@ MOD_NAME = {}
 
 ENV = os.environ.get("ENV", False)
 """ PPE initialization. """
-
-from logging import basicConfig, getLogger, INFO, DEBUG
-from distutils.util import strtobool as sb
-import asyncio
-
 import pylast
 from pySmartDL import SmartDL
 from requests import get
+from logging import basicConfig, getLogger, INFO, DEBUG
+from distutils.util import strtobool as sb
+
 # Bot Logs setup:
 if bool(ENV):
     CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
