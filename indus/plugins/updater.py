@@ -1,12 +1,12 @@
-# For JARVIS
+# For Indus
 # Copyright (C) 2019 The Raphielscape Company LLC.
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 # credits to @AvinashReddy3108 and @xditya
-# Rewritten for JARVIS by @jarvis210904
+# Rewritten for Indus by @sppidy
 
 """
-This module is used for updating JARVIS
+This module is used for updating Indus
 """
 
 import asyncio
@@ -17,7 +17,7 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from indus import CMD_HNDLR
-from indus.utils import admin_cmd, sudo_cmd, eor
+from indus.utils import admin_cmd
 
 requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt"
@@ -25,7 +25,7 @@ requirements_path = path.join(
 
 HEROKU_API_KEY = Var.HEROKU_API_KEY
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME
-GIT_REPO_NAME = "Indus"
+GIT_REPO_NAME = "Indus Userbot"
 UPSTREAM_REPO_URL = "https://github.com/Team-Indus/IndusUserbot.git"
 
 
@@ -51,11 +51,10 @@ async def updateme_requirements():
         return repr(e)
 
 
-@jarvis.on(admin_cmd(pattern="update ?(.*)"))
-@jarvis.on(sudo_cmd(pattern="update ?(.*)", allow_sudo=True))
+@indus.on(admin_cmd(pattern="update ?(.*)"))
 async def upstream(ups):
     "For .update command, check if the bot is up to date, update if specified"
-    await eor(ups,"`Searching for new updates, if any...`")
+    await ups.edit("`Searching for new updates, if any...`")
     conf = ups.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_updateme = False
@@ -84,8 +83,8 @@ async def upstream(ups):
         origin = repo.create_remote("upstream", off_repo)
         origin.fetch()
         force_updateme = True
-        repo.create_head("master", origin.refs.master)
-        repo.heads.master.set_tracking_branch(origin.refs.master)
+        repo.create_head("main", origin.refs.main)
+        repo.heads.master.set_tracking_branch(origin.refs.main)
         repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name
@@ -111,7 +110,7 @@ async def upstream(ups):
 
     if not changelog and not force_updateme:
         await ups.reply(
-            f"\n`Your BOT is`  **up-to-date**  `with`  **[[{ac_br}]]({UPSTREAM_REPO_URL}/tree/{ac_br})**\n"
+            f"\n`Your BOT is`  **Running in The Latest Version**  `with`  **[[{ac_br}]]({UPSTREAM_REPO_URL}/tree/{ac_br})**\n"
         )
         repo.__del__()
         return
@@ -179,7 +178,7 @@ async def upstream(ups):
         else:
             remote = repo.create_remote("heroku", heroku_git_url)
         try:
-            remote.push(refspec="HEAD:refs/heads/master", force=True)
+            remote.push(refspec="HEAD:refs/heads/main", force=True)
         except GitCommandError as error:
             await ups.edit(f"{txt}\n`Here is the error log:\n{error}`")
             repo.__del__()
