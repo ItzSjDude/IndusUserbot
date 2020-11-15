@@ -26,7 +26,7 @@ requirements_path = path.join(
 HEROKU_API_KEY = Var.HEROKU_API_KEY
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME
 GIT_REPO_NAME = "Indus Userbot"
-UPSTREAM_REPO_URL = "https://github.com/Team-Indus/IndusUserbot.git"
+UPSTREAM_REPO_URL = "https://github.com/Team-Indus/IndusUserbot"
 
 
 async def gen_chlog(repo, diff):
