@@ -6,7 +6,7 @@ import random
 import asyncio
 from math import ceil
 from var import Config, Var
-from indus import CMD_LIST, ALIVE_NAME
+from indus import CMD_LIST, ALIVE_NAME, CMD_HELP
 from telethon import events, errors, custom
 
 
@@ -29,7 +29,7 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
             result = builder.article(
                 "© Indus Userbot Help",
                 text="{}\nCurrently Loaded Plugins: {}".format(
-                    query, len(CMD_LIST)),
+                    query, len(CMD_HELP)),
                 buttons=buttons,
                 link_preview=False
             )
