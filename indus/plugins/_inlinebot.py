@@ -25,11 +25,11 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
         query = event.text
         if event.query.user_id == bot.uid and query.startswith("Userbot"):
             rev_text = query[::-1]
-            buttons = paginate_help(0, CMD_HELP, "helpme")
+            buttons = paginate_help(0, CMD_LIST, "helpme")
             result = builder.article(
                 "© Indus Userbot Help",
                 text="{}\nCurrently Loaded Plugins: {}".format(
-                    query, len(CMD_HELP)),
+                    query, len(CMD_LIST)),
                 buttons=buttons,
                 link_preview=False
             )
@@ -42,7 +42,7 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
             current_page_number = int(
                 event.data_match.group(1).decode("UTF-8"))
             buttons = paginate_help(
-                current_page_number + 1, CMD_HELP, "helpme")
+                current_page_number + 1, CMD_LIST, "helpme")
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
@@ -63,7 +63,7 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
                 event.data_match.group(1).decode("UTF-8"))
             buttons = paginate_help(
                 current_page_number - 1,
-                CMD_HELP,  # pylint:disable=E0602
+                CMD_LIST,  # pylint:disable=E0602
                 "helpme"
             )
             # https://t.me/TelethonChat/115200
@@ -78,7 +78,7 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
         plugin_name = event.data_match.group(1).decode("UTF-8")
         help_string = ""
         try:
-            for i in CMD_HELP[plugin_name]:
+            for i in CMD_LIST[plugin_name]:
                 help_string += i
                 help_string += "\n"
         except:
