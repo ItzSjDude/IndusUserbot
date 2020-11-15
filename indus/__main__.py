@@ -46,7 +46,6 @@ for name in files:
         shortname = path1.stem
         load_module(shortname.replace(".py", ""))
 
-import indus._core
 
 print("Indus Userbot is Officially Working.")
 
